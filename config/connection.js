@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
 });
  
 connection.connect(function(err) {
-  if (err) throw err.stack
+  if (err) throw err
   });
 
 // Export the connection.
