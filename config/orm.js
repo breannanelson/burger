@@ -51,10 +51,12 @@ var orm = {
   },
 
   // burgerDets is an object
-  updateOne: function(tableName, burgerDets, callback) {
-    var q = "UPDATE " + tableName + " SET devoured=? WHERE id=?";
-
-    connection.query(q, [ burgerDets.devoured, burgerDets.id], function (err, result) {
+  updateOne: function(tableName, burgerDets, condition, callback) {
+    console.log(burgerDets)
+    var q = "UPDATE " + tableName + " SET ? WHERE ?";
+    var check = {id : condition}
+    console.log(condition)
+    connection.query(q, [burgerDets, check], function (err, result) {
         if (err) throw err;
 
          callback(result);

@@ -1,34 +1,36 @@
-{{!-- <div class="jumbotron">
-  <h1 class="display-3">Hello, world!</h1>
+<div class="jumbotron">
+  <h1 class="display-3">Eat-Da-Burger!</h1>
   <p class="lead">This is an index entry point for an express application</p>
   <hr class="my-4">
   <p>Replace this jumbotron with your own handlebars!</p>
   <p class="lead">
     <a class="btn btn-primary btn-lg" href="/otherPage" role="button">Learn more</a>
   </p>
-</div> --}}
-
-
-<h1>Eat-Da-Burger!</h1>
-<div id="unEatenB">
-<h4>unEaten Burgers:</h4>
-  {{#each burger}}
-    {{#unless devoured}}
-      {{burger_name}}<br>
-    {{/unless}}
-  {{/each}}
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div id="unEatenB">
+        <h4>unEaten Burgers:</h4>
+        {{#each burger}} {{#unless devoured}} {{burger_name}}
+        <button class="devourBTN" value={{id}}>Devour!</button>
+        <br> {{/unless}} {{/each}}
+      </div>
 
-<div id="EatenB">
-<h4>Eaten Burgers:</h4>
-  {{#each burger}}
-    {{#if devoured}}
-      {{burger_name}}<br>
-    {{/if}}
-  {{/each}}
+    </div>
+    <div class="col-md-6">
+      <div id="EatenB">
+        <h4>Eaten Burgers:</h4>
+        {{#each burger}} {{#if devoured}} {{burger_name}}
+        <br> {{/if}} {{/each}}
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <form>
+      <input type="text" id="burger-input">
+      <button id="submitBTN">Submit</button>
+    </form>
+  </div>
 </div>
-
-<form>
-  <input type="text" id="burger-input">
-  <button id="submitBTN">Submit</button>
-</form>
