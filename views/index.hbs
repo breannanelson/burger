@@ -1,5 +1,5 @@
-<div class="jumbotron">
-  <h1 class="display-3 text-center">Eat-Da-Burger!</h1>
+<div class="jumbotron" id="title">
+  <h1 class="display-3 text-center">Burger Rush</h1>
   <p class="lead text-center">Add your fav burgers and then devour then</p>
 </div>
 <div class="container">
@@ -7,29 +7,32 @@
     <div class="col-md-6">
       <div id="unEatenB">
         <h4>unEaten Burgers:</h4>
-        {{#each burger}} 
-          {{#unless devoured}} 
-            {{burger_name}}
-            <button class="devourBTN float-right" value={{id}}>Devour!</button>
-            <br> 
-          {{/unless}} 
-        {{/each}}
+        {{#each burger}} {{#unless devoured}}
+        <div>{{burger_name}}
+          <button class="btn btn-outline-success devourBTN float-right" value={{id}}>Devour!</button>
+        </div>
+        <br> {{/unless}} {{/each}}
       </div>
 
     </div>
     <div class="col-md-6">
       <div id="EatenB">
         <h4>Eaten Burgers:</h4>
-        {{#each burger}} {{#if devoured}} {{burger_name}}
-        <br> {{/if}} {{/each}}
+        {{#each burger}}{{#if devoured}}{{burger_name}}
+        <br>{{/if}}{{/each}}
       </div>
 
     </div>
   </div>
   <div class="row">
     <form>
-      <input type="text" id="burger-input">
-      <button id="submitBTN">Submit</button>
+      <div class="form-group">
+        <label>What is the next burger you will devour:</label>
+        <div>
+          <input type="text" class="form-control" id="burger-input" placeholder="Tuna Burger" style="">
+          <button class="btn btn-outline-success" id="submitBTN">Submit</button>
+        </div>
+      </div>
     </form>
   </div>
 </div>
